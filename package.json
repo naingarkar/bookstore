@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "nodemon app.js"
   },
   "repository": {
     "type": "git",
@@ -19,10 +19,16 @@
   "homepage": "https://github.com/naingarkar/bookstore#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
+    "ejs": "^3.1.6",
     "express": "^4.17.1",
     "express-fileupload": "^1.2.1",
+    "http-errors": "^1.8.0",
     "jquery": "^3.6.0",
-    "mysql": "^2.18.1"
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1",
+    "path": "^0.12.7",
+    "req-flash": "0.0.3"
   },
   "devDependencies": {
     "nodemon": "^2.0.12"

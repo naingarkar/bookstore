@@ -1,20 +1,21 @@
 const mysql = require('mysql');
-const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '',
-  database: 'bookstore'
+const conn = mysql.createConnection({
+  host: 'localhost',    // Replace with your host name
+  user: 'root',         // Replace with your database username
+  password: '',         // Replace with your database password
+  database: 'bookstore' // Replace with your database Name
 });
-connection.connect((err) => {
+conn.connect(function(err) {
   if (err) throw err;
-  console.log('Connected!');
+  console.log('Database is connected successfully !');
 });
+module.exports = conn;
 
-let query = "SELECT * FROM books";
-connection.query(query, (err,rows) => {
-  if(err) throw err;
-    else{
-      console.log(rows);
-      // res.send(rows);
-    }        
-});
+// let query = "SELECT * FROM books";
+// connection.query(query, (err,rows) => {
+//   if(err) throw err;
+//     else{
+//       console.log(rows);
+//       // res.send(rows);
+//     }        
+// });

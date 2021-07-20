@@ -1,0 +1,88 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Fetch using MySQL and Node.js</title>
+</head>
+<body>
+    <div class="table-data">
+<h2>Display Data using Node.js & MySQL</h2>
+    <table border="1">
+        <tr>
+            <th>book no.</th>
+            <th>book name</th>
+        </tr>
+        
+        <%
+            if(bookData.length!=0){
+            var i=1;
+            bookData.forEach(function(data){
+        %>
+        <tr>
+            <td><%=i; %></td>
+            <td><%=data.fullName %></td>
+            <td><%=data.emailAddress %></td>
+            <td><%=data.city %></td>
+            <td><%=data.country %></td>
+            <!- <td><a href="/users/edit/<%=data.id%>">Edit</a></td>
+            <td><a href="/users/delete/<%=data.id%>">Delete</a></td> ->
+        </tr>
+        <%  i++; }) %>
+        <% } else{ %>
+            <tr>
+                <td colspan="7">No Data Found</td>
+            </tr>
+        <% } %>
+    </table>
+    </div>
+</body>
+</html> -->
+
+<div class="container">
+    <div class="row mt-3">
+        <%
+            if(bookData.length!=0){
+            var i=1;
+            bookData.forEach(function(data){
+        %>
+            <div class="col-3">
+                <div class="card no_border" style="width: 12rem;">
+                <img src="https://data.bitmyanmar.info/wunzin/assets/Online_Sarpay_cover/martial/tak_gabarthitnatphayar.jpg" class="card-img-top" alt="...">
+                <div class="card-body p-0 pt-3">
+                    <p class="card-text"><%=data.fullName %></p>
+                    
+                </div>
+                </div>
+            </div>
+            <!-- <div class="col-3">
+                <div class="card no_border" style="width: 12rem;">
+                <img src="https://data.bitmyanmar.info/wunzin/assets/Online_Sarpay_cover/martial/soethu.jpg" class="card-img-top" alt="...">
+                <div class="card-body p-0 pt-3">
+                    <p class="card-text">ကောင်းကင်တာအိုရဲ့ မှော်ဆေးဧကရာဇ်</p>
+                    
+                </div>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="card no_border" style="width: 12rem;">
+                <img src="https://data.bitmyanmar.info/wunzin/assets/Online_Sarpay_cover/martial/tak_gabarthitnatphayar.jpg" class="card-img-top" alt="...">
+                <div class="card-body p-0 pt-3">
+                    <p class="card-text">ကမ္ဘာသစ် နတ်ဘုရား</p>
+                    
+                </div>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="card no_border" style="width: 12rem;">
+                <img src="https://data.bitmyanmar.info/wunzin/assets/Online_Sarpay_cover/martial/soethu.jpg" class="card-img-top" alt="...">
+                <div class="card-body p-0 pt-3">
+                    <p class="card-text">ကောင်းကင်တာအိုရဲ့ မှော်ဆေးဧကရာဇ်</p>
+                    
+                </div>
+                </div>
+            </div> -->
+        <%  i++; }) %>
+        <% } else{ %>
+            <div><span>No Data Found</span></div>
+        <% } %>
+    </div>
+</div>
