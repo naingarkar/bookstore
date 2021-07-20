@@ -15,7 +15,12 @@ var router = express.Router();
 var db=require('../db');
 // another routes also appear here
 // this script to fetch data from MySQL databse table
-router.get('/book-list', function(req, res, next) {
+router.get('/', function(req, res){
+  res.send("It works now");
+});
+
+router.get('/booklist', function(req, res, next) {
+  console.log("booklist show");
     var sql='SELECT * FROM books';
     db.query(sql, function (err, data, fields) {
     if (err) throw err;
