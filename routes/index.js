@@ -1,30 +1,28 @@
-// $(document).ready(function () {
-//     // get books
-//     fetch('/', { method: 'GET' })
-//     .then(function (response) {
-//         if (response.ok) return response.json();
-//         throw new Error('Request failed.');
-//     })
-//     .then(function (data) {
-//         console.log(data)
-//     })
-// })
-
-var express = require('express');
+var express = require("express");
 var router = express.Router();
-var db=require('../db');
-// another routes also appear here
-// this script to fetch data from MySQL databse table
-router.get('/', function(req, res){
-  res.send("It works now");
+var connection = require("../db");
+
+/* GET home page. */
+router.get("/", function (req, res, next) {
+  connection.query(
+    "SELECT * FROM books",
+    function (err, rows) {
+      if (err) {
+        console.log(rows);
+        req.flash("error", err);
+        res.render("books", {
+          page_title: "Book Store - Node.js",
+          data: "",
+        });
+      } else {
+        console.log(rows);
+        res.render("books", {
+          page_title: "Book Store - Node.js",
+          data: rows,
+        });
+      }
+    }
+  );
 });
 
-router.get('/booklist', function(req, res, next) {
-  console.log("booklist show");
-    var sql='SELECT * FROM books';
-    db.query(sql, function (err, data, fields) {
-    if (err) throw err;
-    res.render('book-list', { title: 'Book List', bookData: data});
-  });
-});
 module.exports = router;
