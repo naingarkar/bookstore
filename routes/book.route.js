@@ -1,9 +1,11 @@
 var express = require("express");
 var router = express.Router();
-var connection = require("../db");
+var connection = require("../models/db");
+
+const books = require("../controllers/book.controller.js");
 
 /* GET home page. */
-router.get("/", function (req, res, next) {
+router.get("/", function (req, res) {
   connection.query(
     "SELECT * FROM books",
     function (err, rows) {
@@ -24,5 +26,7 @@ router.get("/", function (req, res, next) {
     }
   );
 });
+
+router.get("/booklist", books.getBookList);
 
 module.exports = router;
