@@ -18,4 +18,17 @@ Book.getAll = result => {
     });
 };
 
+Book.findById = (bookId, result) => {
+    sql.query(`SELECT * FROM books WHERE id = ${bookId};`, (err, res) => {
+        if(err) {
+            console.log("error: ", err);
+            result(null, err);
+            return;
+        }
+
+        console.log("book detail : ", res[0]);
+        result(null, res[0]);
+    });
+};
+
 module.exports = Book;
