@@ -18,8 +18,8 @@ Book.getAll = result => {
     });
 };
 
-Book.findById = (bookId, result) => {
-    sql.query(`SELECT * FROM books WHERE id = ${bookId};`, (err, res) => {
+Book.findBookById = (bookId, result) => {
+    sql.query(`SELECT * FROM books WHERE bid = ${bookId};`, (err, res) => {
         if(err) {
             console.log("error: ", err);
             result(null, err);

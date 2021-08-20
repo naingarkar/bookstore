@@ -28,6 +28,6 @@ const books = require("../controllers/book.controller.js");
 // });
 
 router.get("/booklist", books.getBookList);
-router.get("/book/:bookId/detail", books.getBookDetail);
+router.get("/books/:bookId/detail", books.getBookDetail);
 
 module.exports = router;
